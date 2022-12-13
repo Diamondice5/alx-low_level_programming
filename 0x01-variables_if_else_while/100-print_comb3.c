@@ -27,7 +27,7 @@ int main(void)
 			if (i < 56 || j < 57)
 			{
 				putchar(44);
-				putchat(32);
+				putchar(32);
 			}
 			j++;
 		}
