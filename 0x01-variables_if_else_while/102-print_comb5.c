@@ -8,7 +8,7 @@
  * Return: 0
  */
 
-inth main(void)
+int main(void)
 {
 	int i, j, k, m;
 
