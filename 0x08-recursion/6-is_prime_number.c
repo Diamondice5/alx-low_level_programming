@@ -1,40 +1,50 @@
 #include "main.h"
-
-int validate_sqr(int x, int y);
-
 /**
- * _sqrt_recursion - function entry point
- * @n: function param
- * Desc: returns the natural square root of a number
- *
- * Return: natural square root of n or -1 if n doesn't have one
+ * evaluate_num - recursion loop
+ * @num: num
+ * @iterator: number to iterate
+ * Return: return 1 or 0
  */
-int _sqrt_recursion(int n)
+int evaluate_num(int num, int iterator)
 {
-	if (n == 0)
+	if (iterator == num - 1)
+	{
+		return (1);
+	}
+
+	else if (num % iterator == 0)
 	{
 		return (0);
 	}
-	return (validate_sqr(1, n));
-}
 
+	if (num % iterator != 0)
+	{
+		return (evaluate_num(num, iterator + 1));
+	}
+
+	return (0);
+}
 /**
- * validate_sqr - function entry point
- * @x: param
- * @y: param
- * Desc: checks if sqr of x == y
- *
- * Return: square of x else -1
+ * is_prime_number - evaluate prime or not
+ * @num: number
+ * Return: return 1 prime - return 0 otherwise
  */
-int validate_sqr(int x, int y)
+int is_prime_number(int num)
 {
-	if (x * x == y)
+	int iterator;
+
+	iterator = 2;
+
+	/* only greater than 2*/
+	if (num < 2)
 	{
-		return (x);
+		return (0);
 	}
-	else if (x * x > y)
+
+	if (num == 2)
 	{
-		return (-1);
+		return (1);
 	}
-	return (validate_sqr((x + 1), y));
+
+	return (evaluate_num(num, iterator));
 }
